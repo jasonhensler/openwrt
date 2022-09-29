@@ -34,6 +34,7 @@ platform_do_upgrade() {
 		;;
 	elecom,wrc-x3200gst3|\
 	mediatek,mt7622-rfb1-ubi|\
+	netgear,wax206|\
 	totolink,a8000ru|\
 	xiaomi,redmi-router-ax6s)
 		nand_do_upgrade "$1"
@@ -70,6 +71,7 @@ platform_check_image() {
 		;;
 	elecom,wrc-x3200gst3|\
 	mediatek,mt7622-rfb1-ubi|\
+	netgear,wax206|\
 	totolink,a8000ru|\
 	xiaomi,redmi-router-ax6s)
 		nand_do_platform_check "$board" "$1"
