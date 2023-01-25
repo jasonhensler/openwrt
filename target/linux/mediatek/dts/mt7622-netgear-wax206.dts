@@ -13,8 +13,6 @@
 
 	aliases {
 		ethernet0 = &gmac0;
-//		label-mac-device = &gmac0;
-//		label-mac-device = &wan;
 		led-boot = &led_power_r;
 		led-failsafe = &led_power_r;
 		led-running = &led_power_g;
@@ -28,13 +26,11 @@
 	};
 
 	cpus {
-//&cpu0
 		cpu@0 {
 			proc-supply = <&mt6380_vcpu_reg>;
 			sram-supply = <&mt6380_vm_reg>;
 		};
 
-//&cpu1
 		cpu@1 {
 			proc-supply = <&mt6380_vcpu_reg>;
 			sram-supply = <&mt6380_vm_reg>;
@@ -114,7 +110,6 @@
 	};
 };
 
-//TBD: disabled in stock?
 &bch {
 	status = "okay";
 };
@@ -129,8 +124,6 @@
 	status = "okay";
 };
 
-//&efuse
-
 &eth {
 	pinctrl-names = "default";
 	pinctrl-0 = <&eth_pins>;
@@ -140,7 +133,6 @@
 		compatible = "mediatek,eth-mac";
 		nvmem-cells = <&macaddr_factory_7fff4>;
 		nvmem-cell-names = "mac-address";
-//		phy-connection-type = "2500base-x";
 		phy-mode = "2500base-x";
 		reg = <0>;
 
@@ -158,11 +150,9 @@
 		switch@0 {
 			compatible = "mediatek,mt7531";
 			#interrupt-cells = <1>;
-//			#interrupt-cells = <2>;
 			interrupt-controller;
 			interrupt-parent = <&pio>;
 			interrupts = <53 IRQ_TYPE_LEVEL_HIGH>;
-//TBD: 2nd interrupt 77 IRQ_TYPE_EDGE_FALLING
 			reg = <0>;
 			reset-gpios = <&pio 54 GPIO_ACTIVE_HIGH>;
 
@@ -192,13 +182,10 @@
 
 				wan: port@5 {
 					label = "wan";
-//TBD
-//					managed = "in-band-status";
 					nvmem-cells = <&macaddr_factory_7fffa>;
 					nvmem-cell-names = "mac-address";
 					phy-handle = <&rtl8221b_phy>;
 					phy-mode = "sgmii";
-//					phy-mode = "2500base-x";
 					reg = <5>;
 				};
 
@@ -227,10 +214,6 @@
 		};
 	};
 };
-
-//&hnat
-
-//TBD: i2c?
 
 &pcie0 {
 	pinctrl-names = "default";
@@ -398,34 +381,7 @@
 			compatible = "fixed-partitions";
 			#address-cells = <1>;
 			#size-cells = <1>;
-	/*
-	[    1.456820] 0x000000000000-0x000000080000 : "Preloader"
-	[    1.463323] 0x000000080000-0x0000000c0000 : "ATF"
-	[    1.468865] 0x0000000c0000-0x000000140000 : "Bootloader"
-	[    1.475339] 0x000000140000-0x0000001c0000 : "Config"
-	[    1.481469] 0x0000001c0000-0x0000002c0000 : "Factory"
-	[    1.488403] 0x0000002c0000-0x0000028c0000 : "ImageA"
-	[    1.546793] 0x0000002e0000-0x0000028c0000 : "Kernel"
-	[    1.609321] 2 fit-fw partitions found on MTD device Kernel
-	[    1.614809] 0x0000002e0000-0x000000580000 : "kernel"
-	[    1.623890] 0x000000580000-0x0000028c0000 : "rootfs"
-	[    1.678471] mtd: device 8 (rootfs) set to be root filesystem
-	[    1.715994] 1 squashfs-split partitions found on MTD device rootfs
-	[    1.722175] 0x000001c60000-0x0000028c0000 : "rootfs_var"
-	[    1.745236] 0x0000028c0000-0x000004ec0000 : "Kernel_backup"
-	[    1.806070] 0x000004ec0000-0x0000056c0000 : "CFG"
-	[    1.822393] 0x0000056c0000-0x000005ac0000 : "RAE"
-	[    1.833183] 0x000005ac0000-0x000005bc0000 : "POT"
-	[    1.843779] 0x000005bc0000-0x000005fc0000 : "Language"
-	[    1.855067] 0x000005fc0000-0x0000061c0000 : "Traffic"
-	[    1.863392] 0x0000061c0000-0x0000062c0000 : "Cert"
-	[    1.870064] 0x0000062c0000-0x0000063c0000 : "NTGRcryptK"
-	[    1.877258] 0x0000063c0000-0x0000068c0000 : "NTGRcryptD"
-	[    1.890005] 0x0000068c0000-0x0000069c0000 : "LOG"
-	[    1.902786] mtdoops: ready 0, 1 (no erase)
-	[    1.906880] mtdoops: Attached to MTD device 19
-	[    1.911668] 0x0000069c0000-0x000007000000 : "User_data"
-	*/
+
 			partition@0 {
 				label = "Preloader";
 				reg = <0x00000 0x0080000>;
