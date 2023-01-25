@@ -258,7 +258,7 @@ TARGET_DEVICES += netgear_wax206
 
 
 
-define Device/netgear_wax206
+define Device/netgear_wax206-2500x
   $(Device/dsa-migration)
   DEVICE_VENDOR := NETGEAR
   DEVICE_MODEL := WAX206-2500x
