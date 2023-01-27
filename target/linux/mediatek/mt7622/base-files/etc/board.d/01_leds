@@ -11,6 +11,9 @@ linksys,e8450-ubi|\
 netgear,wax206)
 	ucidef_set_led_netdev "wan" "WAN" "inet:blue" "wan"
 	;;
+netgear,wax206-2500x)
+	ucidef_set_led_netdev "wan" "WAN" "inet:blue" "wan"
+	;;
 xiaomi,redmi-router-ax6s)
 	ucidef_set_led_netdev "wan" "WAN" "blue:net" "wan"
 	;;

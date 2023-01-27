@@ -15,6 +15,7 @@ mediatek_setup_interfaces()
 	mediatek,mt7622-rfb1|\
 	mediatek,mt7622-rfb1-ubi|\
 	netgear,wax206|\
+	netgear,wax206-2500x|\
 	reyee,ax3200-e5|\
 	ruijie,rg-ew3200gx-pro)
 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan4" wan
